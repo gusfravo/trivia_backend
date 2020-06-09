@@ -14,6 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group([
+    'prefix' => 'auth',
+    'middleware' => 'cors'
+], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+
+    Route::group([
+      'middleware' => 'auth:api'
+    ], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
+});
+    // * ================== Api con seguridad y CORS  =====================*/
+    Route::group(['middleware' => 'cors'], function () {
+    Route::group(['middleware' => 'auth:api'], function() {
+      Route::post('role/list', 'RoleController@list');
+      Route::post('role/findByName', 'RoleController@findByName');
+    });
+    // * ================== Api sin seguridad y CORS cualquiera puede ejecutarlas. =====================*/
+    // Route::post('category/list', 'AdminCategoriaController@list');
+    Route::post('place/update', 'PlaceController@update');
+    Route::post('place/findAll', 'PlaceController@findAll');
+  });
+    // * ================== Api sin seguridad y sin CORS cualquiera puede ejecutarlas. =====================*/
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
