@@ -33,6 +33,8 @@ Route::group([
     Route::group(['middleware' => 'auth:api'], function() {
       Route::post('role/list', 'RoleController@list');
       Route::post('role/findByName', 'RoleController@findByName');
+      Route::post('profile/update', 'ProfileController@update');
+      Route::post('profile/findByUser', 'ProfileController@findByUser');
     });
     // * ================== Api sin seguridad y CORS cualquiera puede ejecutarlas. =====================*/
     // Route::post('category/list', 'AdminCategoriaController@list');
