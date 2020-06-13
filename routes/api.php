@@ -46,6 +46,7 @@ Route::group([
       Route::post('game/create', 'GameController@create');
       Route::post('game/endGame', 'GameController@endGame');
       Route::post('game/updateTime', 'GameController@updateTime');
+      Route::post('gameAnswer/validate', 'GameAnswerController@validate');
     });
     // * ================== Api sin seguridad y CORS cualquiera puede ejecutarlas. =====================*/
     Route::post('trivia/get', 'TriviaController@get');

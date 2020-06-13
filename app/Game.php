@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Trivia;
 use App\Profile;
+use App\GameAnswer;
 
 class Game extends Model
 {
@@ -41,6 +42,13 @@ class Game extends Model
   public function profile()
   {
         return $this->belongsTo(Profile::class);
+  }
+
+  /**Relación - Un juego tiene muchas respuestas
+  */
+  public function gameAnswers()
+  {
+    return $this->hasMany(GameAnswer::class);
   }
 
 }

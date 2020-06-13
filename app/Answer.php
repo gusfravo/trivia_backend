@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Question;
+use App\GameAnswer;
 
 class Answer extends Model
 {
@@ -31,4 +32,12 @@ class Answer extends Model
   {
         return $this->belongsTo(Question::class);
   }
+
+  /**Relación - Una respuesta la pueden seleccionar muchas respuestas de juegos.
+  */
+  public function gameAnswers()
+  {
+    return $this->hasMany(GameAnswer::class);
+  }
+
 }
