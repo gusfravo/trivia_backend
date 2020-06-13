@@ -32,6 +32,7 @@ class QuestionController extends Controller
       $question->position = $totalQ;
       $question->img = $reqst->img;
       $question->trivia_id = $reqst->trivia->id;
+      $question->complement = $reqst->complement;
 
       $question->save();
       if(empty($question->id)){
@@ -72,6 +73,7 @@ class QuestionController extends Controller
         "position"=>$question->position,
         "img"=>$question->img,
         "trivia"=>$question->trivia,
+        "complement"=>$question->complement,
       );
 
       return response()->json([
@@ -109,6 +111,7 @@ class QuestionController extends Controller
           "position"=>$element->position,
           "img"=>$element->img,
           "trivia"=>["id"=>$trivia->id],
+          "complement"=>$element->complement,
         );
 
       }

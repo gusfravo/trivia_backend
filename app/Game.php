@@ -19,7 +19,8 @@ class Game extends Model
       'end',
       'status', // Iniciada, Terminada, Ganador
       'trivia_id',
-      'profile_id'
+      'profile_id',
+      'last_position'
   ];
 
   /**

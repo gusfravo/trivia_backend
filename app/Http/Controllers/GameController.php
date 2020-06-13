@@ -27,6 +27,8 @@ class GameController extends Controller
         $game->status = 'Iniciada';
         $game->trivia_id = $reqst->trivia->id;
         $game->profile_id = $reqst->profile->id;
+        $game->last_position = 1;
+
         $game->save();
         if(empty($game->id)){
           return response()->json([
@@ -98,6 +100,7 @@ class GameController extends Controller
       //Declaramos el nombre con el nombre enviado en el request
       $game = Game::find($reqst->id);
       $game->time = $game->time + $reqst->time;
+      $game->last_position = $reqst->lastPosition;
       $game->save();
       return response()->json([
         "transaction" => "ok",

@@ -17,6 +17,7 @@ class Question extends Model
       'position',
       'img',
       'trivia_id',
+      'complement'
   ];
 
   /**
