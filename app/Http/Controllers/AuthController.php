@@ -113,7 +113,7 @@ class AuthController extends Controller
         $request->validate([
           'name'     => 'required|string',
           'email'    => 'required|string|email|unique:users',
-          'password' => 'required|string|confirmed',
+          'password' => 'required|string',
           'role'     => 'required|string'
         ]);
         $user = new User([
@@ -128,10 +128,10 @@ class AuthController extends Controller
           $user->roles()->attach($role);
           //creamos el perfil del usuario
           $profile = new Profile;
-          $profile->name = $reqst->name;
-          $profile->lastname = $reqst->lastname;
-          $profile->phone = $reqst->phone;
-          $profile->origin = $reqst->phone;
+          $profile->name = $request->name;
+          $profile->lastname = $request->lastname;
+          $profile->phone = $request->phone;
+          $profile->origin = $request->origin;
           $profile->img = "";
           $profile->user_id = $user->id;
           $profile->save();
