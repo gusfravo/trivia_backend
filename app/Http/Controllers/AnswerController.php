@@ -105,12 +105,11 @@ class AnswerController extends Controller
           );
 
         }
-
         return response()->json([
           "transaction" => "ok",
           "object" => [
             "total"=>$total,
-            "instanceList"=>shuffle($instanceList)
+            "instanceList"=>$instanceList
           ],
           "message" =>  "El registro se encontro correctamente",
           "code" => "answer:findAllByQuestion:002"

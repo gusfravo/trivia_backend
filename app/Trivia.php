@@ -9,6 +9,7 @@ use App\Game;
 class Trivia extends Model
 {
     //
+    protected $table = 'trivias';
     /**
      * The attributes that are mass assignable.
      */

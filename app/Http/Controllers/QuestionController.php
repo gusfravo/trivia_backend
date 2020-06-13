@@ -18,16 +18,18 @@ class QuestionController extends Controller
       //Declaramos el nombre con el nombre enviado en el request
       if(empty($reqst->id)){
         $question = new Question;
+        //obtenemos la ultima posición
+        $trivia =  Trivia::find($reqst->trivia->id);
+        $questions = $trivia->questions;
+        $totalQ =  sizeof($trivia->questions) + 1;
       }else{
         $question = Question::find($reqst->id);
         $question->id = $reqst->id;
+        $totalQ = $question->position;
       }
-      //obtenemos la ultima posición
-      $trivia =  Trivia::find($reqst->trivia->id);
-      $questions = $trivia->questions;
-      $totalQ =  sizeof($trivia->questions);
-      $question->quetion = $reqst->question;
-      $question->position = $totalQ+1;
+
+      $question->question = $reqst->question;
+      $question->position = $totalQ;
       $question->img = $reqst->img;
       $question->trivia_id = $reqst->trivia->id;
 
