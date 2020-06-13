@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Game;
 
 class Profile extends Model
 {
@@ -32,4 +33,11 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+  /** Relación - Un perfil de usuario tiene muchos juegos
+  */
+  public function games()
+  {
+    return $this->hasMany(Game::class);
+  }
 }

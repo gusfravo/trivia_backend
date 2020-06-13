@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Question;
+use App\Game;
 
 class Trivia extends Model
 {
@@ -30,5 +31,12 @@ class Trivia extends Model
     public function questions()
       {
         return $this->hasMany(Question::class);
+      }
+
+      /** Relación - Una trivia puede ver todos los muchos juegos de los usuarios
+      */
+      public function games()
+      {
+        return $this->hasMany(Game::class);
       }
 }
