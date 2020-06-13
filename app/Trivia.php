@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Question;
 
 class Trivia extends Model
 {
@@ -25,4 +26,9 @@ class Trivia extends Model
       'created_at',
       'updated_at'
     ];
+
+    public function questions()
+      {
+        return $this->hasMany(Question::class);
+      }
 }
