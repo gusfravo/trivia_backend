@@ -5,6 +5,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Role;
+use App\Profile;
 
 class AuthController extends Controller
 {
@@ -102,5 +103,57 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         return response()->json($request->user());
+    }
+
+    /**Método para que un usuario se regitre en el sistema
+    */
+    public function newsignup(Request $request)
+    {
+      try{
+        $request->validate([
+          'name'     => 'required|string',
+          'email'    => 'required|string|email|unique:users',
+          'password' => 'required|string|confirmed',
+          'role'     => 'required|string'
+        ]);
+        $user = new User([
+          'name'     => $request->name,
+          'email'    => $request->email,
+          'password' => bcrypt($request->password),
+        ]);
+
+        $user->save();
+        if($request->role !=''){
+          $role = Role::where('name','like',$request->role.'%')->where('status', true)->first();
+          $user->roles()->attach($role);
+          //creamos el perfil del usuario
+          $profile = new Profile;
+          $profile->name = $reqst->name;
+          $profile->lastname = $reqst->lastname;
+          $profile->phone = $reqst->phone;
+          $profile->origin = $reqst->phone;
+          $profile->img = "";
+          $profile->user_id = $user->id;
+          $profile->save();
+          return response()->json([
+            "transaction" => "ok",
+            "message" =>  "Usuario registrado exitosamente",
+            "code" => "newsignup:001"
+          ], 200);
+        }else{
+          return response()->json([
+            "transaction" => "bad",
+            "message" =>  'Error verifique su información',
+            "code" => "system:error:newsignup:002"
+          ], 500);
+        }
+
+      }catch (Exception $e){
+        return response()->json([
+          "transaction" => "bad",
+          "message" =>  $e->getMessage(),
+          "code" => "system:error:newsignup:001"
+        ], 500);
+      }
     }
 }

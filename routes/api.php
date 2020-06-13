@@ -35,11 +35,11 @@ Route::group([
       Route::post('role/findByName', 'RoleController@findByName');
       Route::post('profile/update', 'ProfileController@update');
       Route::post('profile/findByUser', 'ProfileController@findByUser');
+      Route::post('trivia/update', 'TriviaController@update');
+      Route::post('trivia/findAll', 'TriviaController@findAll');
     });
     // * ================== Api sin seguridad y CORS cualquiera puede ejecutarlas. =====================*/
-    // Route::post('category/list', 'AdminCategoriaController@list');
-    Route::post('place/update', 'PlaceController@update');
-    Route::post('place/findAll', 'PlaceController@findAll');
+    Route::post('trivia/get', 'TriviaController@get');
   });
     // * ================== Api sin seguridad y sin CORS cualquiera puede ejecutarlas. =====================*/
 
