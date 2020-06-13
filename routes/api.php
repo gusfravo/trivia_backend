@@ -39,11 +39,16 @@ Route::group([
       Route::post('trivia/findAll', 'TriviaController@findAll');
       Route::post('question/update', 'QuestionController@update');
       Route::post('question/delete', 'QuestionController@delete');
+      Route::post('answer/update', 'AnswerController@update');
+      Route::post('answer/delete', 'AnswerController@delete');
+      Route::post('answer/get', 'AnswerController@get');
+      Route::post('answer/findAllByQuestion', 'AnswerController@findAllByQuestion');
     });
     // * ================== Api sin seguridad y CORS cualquiera puede ejecutarlas. =====================*/
     Route::post('trivia/get', 'TriviaController@get');
     Route::post('question/get', 'QuestionController@get');
     Route::post('question/findAllByTrivia', 'QuestionController@findAllByTrivia');
+    Route::post('answer/findAllByQuestionToPlay', 'AnswerController@findAllByQuestionToPlay');
 
   });
     // * ================== Api sin seguridad y sin CORS cualquiera puede ejecutarlas. =====================*/

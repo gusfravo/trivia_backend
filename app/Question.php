@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Trivia;
+use App\Answer;
 
 class Question extends Model
 {
@@ -29,5 +30,12 @@ class Question extends Model
   public function trivia()
   {
         return $this->belongsTo(Trivia::class);
+  }
+
+  /**Relación - Una pregunta tiene muchas respuestas
+  */
+  public function answers()
+  {
+        return $this->hasMany(Answer::class);
   }
 }
