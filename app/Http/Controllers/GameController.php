@@ -151,7 +151,7 @@ class GameController extends Controller
           "profile"=>["id"=>""]
         );
       }else{
-        $game = $gameL->first();
+        $game = $gameL;
         $object = array(
           "id"=>$game->id,
           "time"=>$game->time,
