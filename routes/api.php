@@ -21,6 +21,7 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
     Route::post('newsignup', 'AuthController@newsignup');
+    Route::post('loginWithFacebook', 'AuthController@loginWithFacebook');
 
     Route::group([
       'middleware' => 'auth:api'
