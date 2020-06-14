@@ -10,7 +10,7 @@ class GameAnswerController extends Controller
 {
   /**Método para validar si una respuesta es correcta
   */
-  public function validate(Request $request)
+  public function valid(Request $request)
   {
     $reqst = json_decode($request->getContent());
     try{

@@ -24,7 +24,7 @@ class ProfileController extends Controller
       $profile->lastname = $reqst->lastname;
       $profile->phone = $reqst->phone;
       $profile->origin = $reqst->origin;
-      $profile->img = $reqst->img;
+      $profile->img = "";
       $profile->user_id = $reqst->user->id;
 
       $profile->save();
@@ -65,7 +65,7 @@ class ProfileController extends Controller
         "lastname"=>$profile->lastname,
         "phone"=>$profile->phone,
         "origin"=>$profile->origin,
-        "img"=>$profile->phone,
+        "img"=>"",
         "user"=>array(
           "id"=>$profile->user_id
         )
@@ -83,6 +83,40 @@ class ProfileController extends Controller
         "transaction" => "bad",
         "message" =>  $e->getMessage(),
         "code" => "system:error:profile:findByUser:001"
+      ], 500);
+    }
+  }
+
+  /**Método para obtener una juego por id
+  */
+  public function get (Request $request){
+    try{
+      $reqst = json_decode($request->getContent());
+      $profile = Profile::find($reqst->id);
+
+      $object = array(
+        "id"=>$profile->id,
+        "name"=>$profile->name,
+        "lastname"=>$profile->lastname,
+        "phone"=>$profile->phone,
+        "origin"=>$profile->origin,
+        "img"=>"",
+        "user"=>array(
+          "id"=>$profile->user_id
+        )
+      );
+
+      return response()->json([
+        "transaction" => "ok",
+        "object" => $object,
+        "message" =>  "El registro se obtuvo exitosamente",
+        "code" => "profile:get:001"
+      ], 200);
+    }catch (Exception $e){
+      return response()->json([
+        "transaction" => "bad",
+        "message" =>  $e->getMessage(),
+        "code" => "system:error:profile:get:001"
       ], 500);
     }
   }

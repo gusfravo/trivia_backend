@@ -157,7 +157,7 @@ class AnswerController extends Controller
         $list = $question->answers;
         $total = sizeof($list);
         $instanceList = array();
-
+        $list = $list->shuffle();
         foreach ($list as $element) {
           $correct = $element->correct == 1 ? true : false;
           $instanceList[] = array(
@@ -167,12 +167,11 @@ class AnswerController extends Controller
           );
 
         }
-
         return response()->json([
           "transaction" => "ok",
           "object" => [
             "total"=>$total,
-            "instanceList"=>shuffle($instanceList)
+            "instanceList"=>$instanceList
           ],
           "message" =>  "El registro se encontro correctamente",
           "code" => "answer:findAllByQuestionToPlay:002"
