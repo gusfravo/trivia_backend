@@ -52,6 +52,7 @@ Route::group([
       Route::post('game/findByProfileAndTrivia', 'GameController@findByProfileAndTrivia');
       Route::post('game/get', 'GameController@get');
       Route::post('profile/get', 'ProfileController@get');
+      Route::post('gameAnswer/findTotalsByGame', 'GameAnswerController@findTotalsByGame');
 
     });
     // * ================== Api sin seguridad y CORS cualquiera puede ejecutarlas. =====================*/
