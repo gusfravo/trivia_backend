@@ -65,7 +65,7 @@ class ProfileController extends Controller
         "lastname"=>$profile->lastname,
         "phone"=>$profile->phone,
         "origin"=>$profile->origin,
-        "img"=>"",
+        "img"=>$profile->img,
         "user"=>array(
           "id"=>$profile->user_id
         )
