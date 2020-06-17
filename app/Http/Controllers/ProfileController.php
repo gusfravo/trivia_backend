@@ -100,7 +100,7 @@ class ProfileController extends Controller
         "lastname"=>$profile->lastname,
         "phone"=>$profile->phone,
         "origin"=>$profile->origin,
-        "img"=>"",
+        "img"=>$profile->img,
         "user"=>array(
           "id"=>$profile->user_id
         )
@@ -120,4 +120,74 @@ class ProfileController extends Controller
       ], 500);
     }
   }
+
+  /**Método para obtener una imagen
+  */
+  public function upload(Request $request)
+  {
+    if(!$request->hasFile('file')) {
+      return response()->json([
+          "transaction" => "bad",
+          "message" =>  "Archivo a subir no encontrado",
+          "code" => "system:error:profile:upload:001"
+        ],400);
+    }
+    $file = $request->file('file');
+    if(!$file->isValid()) {
+      return response()->json([
+          "transaction" => "bad",
+          "message" =>  "El archivo a subir no es valido",
+          "code" => "system:error:profile:upload:001"
+        ],400);
+    }
+    $path = public_path() . '/uploads/';
+    $nameFile = $file->getClientOriginalName();
+    $file->move($path, $file->getClientOriginalName() );
+    // return response()->json(compact('path'));
+    return response()->json([
+        "transaction" => "ok",
+        "message" =>  "El archivo se subio exitosamente",
+        "object" => [
+          "path" => compact('path'),
+          "name" => $nameFile
+        ],
+        "code" => "success:profile:upload:001"
+      ],200);
+  }
+
+  /**Método para obtener una juego por id
+  */
+  public function updateImg (Request $request){
+    try{
+      $reqst = json_decode($request->getContent());
+      $profile = Profile::find($reqst->id);
+      $profile->img = $reqst->img;
+      $profile->save();
+      $object = array(
+        "id"=>$profile->id,
+        "name"=>$profile->name,
+        "lastname"=>$profile->lastname,
+        "phone"=>$profile->phone,
+        "origin"=>$profile->origin,
+        "img"=>$profile->img,
+        "user"=>array(
+          "id"=>$profile->user_id
+        )
+      );
+
+      return response()->json([
+        "transaction" => "ok",
+        "object" => $object,
+        "message" =>  "El registro se obtuvo exitosamente",
+        "code" => "profile:updateImg:001"
+      ], 200);
+    }catch (Exception $e){
+      return response()->json([
+        "transaction" => "bad",
+        "message" =>  $e->getMessage(),
+        "code" => "system:error:profile:updateImg:001"
+      ], 500);
+    }
+  }
+
 }

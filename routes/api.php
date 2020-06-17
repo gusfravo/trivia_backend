@@ -53,7 +53,8 @@ Route::group([
       Route::post('game/get', 'GameController@get');
       Route::post('profile/get', 'ProfileController@get');
       Route::post('gameAnswer/findTotalsByGame', 'GameAnswerController@findTotalsByGame');
-
+      Route::post('profile/upload', 'ProfileController@upload');
+      Route::post('profile/updateImg', 'ProfileController@updateImg');
     });
     // * ================== Api sin seguridad y CORS cualquiera puede ejecutarlas. =====================*/
     Route::post('trivia/get', 'TriviaController@get');
