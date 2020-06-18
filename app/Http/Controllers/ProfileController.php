@@ -140,7 +140,7 @@ class ProfileController extends Controller
           "code" => "system:error:profile:upload:001"
         ],400);
     }
-    $path = public_path() . '/uploads/';
+    $path = _DIR_.'/../../../../htdocs/public/uploads/';
     $nameFile = $file->getClientOriginalName();
     $file->move($path, $file->getClientOriginalName() );
     // return response()->json(compact('path'));
