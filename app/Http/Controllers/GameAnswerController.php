@@ -27,10 +27,22 @@ class GameAnswerController extends Controller
       $gameAnswer->correct = $correct;
 
       $gameAnswer->save();
+
+      //buscamos la respuesta correcta
+      $question = $answer->question;
+      $answerList = $question->answers;
+      $correctAnswer = '';
+      foreach ($answerList as &$item) {
+          if($item->correct == 1){
+            $correctAnswer = $item;
+          }
+        }         
+
       if(empty($gameAnswer->id)){
         return response()->json([
           "transaction" => "ok",
           "object" => $gameAnswer,
+          "correctAnswer" => $correctAnswer,
           "message" =>  "El registro se creo correctamente",
           "code" => "gameAnswer:validate:001"
         ], 201);
