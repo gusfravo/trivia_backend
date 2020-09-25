@@ -37,9 +37,9 @@ Route::get('/felicitaciones/{id}', function ($id) {
   $hour = floor($game->time/1000/60/60);
   $minute = floor(($game->time/1000/60/60 - $hour)*60);
   if($profile->img != ''){
-    $img = "server/public/uploads/".$profile->img;
+    $img = "/st/rally/server/public/uploads/".$profile->img;
   }else{
-    $img = "/assets/img/circulo-usuariofinal.png";
+    $img = "/st/rally/server/public/assets/img/circulo-usuariofinal.png";
   }
 
   $requestAux = array(

@@ -54,21 +54,21 @@
     <div class="row justify-content-center">
     	<div class="col-11" id="demo">
     			<div class="row" style="text-align: center;">
-    				<div class="logos"><img src="/assets/img/logo-OLTTO.png" alt="" style="height:100%;"></div>
-    				<div class="logos" style="margin-top:5px;"><img src="/assets/img/logo-sectur.png" alt="" style="height:70%;"></div>
-    				<div class="logos" style="margin-top:5px;"><img src="/assets/img/Oaxacavivelo-01.png" alt="" style="height:85%;"></div>
-    				<div class="logos" style="margin-top:5px;"><img src="/assets/img/volaris.png" alt="" style="height:70%;"></div>
-    				<div class="logos" style="margin-top:5px;"><img src="/assets/img/LOGO_AM.png" alt="" style="height:70%;"></div>
-    				<div class="logos" style="margin-top:12px;"><img src="/assets/img/aeromar-logo-completo_azules.png" alt="" style="height:45%;"></div>
-    				<div class="logos" style="margin-top:-10px;"><img src="/assets/img/Logo_GFA_Oaxaca.png" alt="" style="height:77%;"></div>
-    				<div class="logos" style="margin-top:-12px;"><img src="/assets/img/VIVO-RESORTS.png" alt="" style="height:70%;"></div>
-    				<div class="logos" style="margin-top:-12px;"><img src="/assets/img/logo-AMHYMO.jpg" alt="" style="height:90%;"></div>
-    				<div class="logos" style="margin-top:-12px;"><img src="/assets/img/LOGO-HYMVANTEQUERA.jpg" alt="" style="height:90%;"></div>
-    				<div class="logos" style="margin-top:-5px;"><img src="/assets/img/unnamed.png" alt="" style="height:55%;"></div>
+    				<div class="logos"><img src="/st/rally/server/public/assets/img/logo-OLTTO.png" alt="" style="height:100%;"></div>
+    				<div class="logos" style="margin-top:5px;"><img src="/st/rally/server/public/assets/img/logo-sectur.png" alt="" style="height:70%;"></div>
+    				<div class="logos" style="margin-top:5px;"><img src="/st/rally/server/public/assets/img/Oaxacavivelo-01.png" alt="" style="height:85%;"></div>
+    				<div class="logos" style="margin-top:5px;"><img src="/st/rally/server/public/assets/img/volaris.png" alt="" style="height:70%;"></div>
+    				<div class="logos" style="margin-top:5px;"><img src="/st/rally/server/public/assets/img/LOGO_AM.png" alt="" style="height:70%;"></div>
+    				<div class="logos" style="margin-top:12px;"><img src="/st/rally/server/public/assets/img/aeromar-logo-completo_azules.png" alt="" style="height:45%;"></div>
+    				<div class="logos" style="margin-top:-10px;"><img src="/st/rally/server/public/assets/img/Logo_GFA_Oaxaca.png" alt="" style="height:77%;"></div>
+    				<div class="logos" style="margin-top:-12px;"><img src="/st/rally/server/public/assets/img/VIVO-RESORTS.png" alt="" style="height:70%;"></div>
+    				<div class="logos" style="margin-top:-12px;"><img src="/st/rally/server/public/assets/img/logo-AMHYMO.jpg" alt="" style="height:90%;"></div>
+    				<div class="logos" style="margin-top:-12px;"><img src="/st/rally/server/public/assets/img/LOGO-HYMVANTEQUERA.jpg" alt="" style="height:90%;"></div>
+    				<div class="logos" style="margin-top:-5px;"><img src="/st/rally/server/public/assets/img/unnamed.png" alt="" style="height:55%;"></div>
     			</div>
 
     			<div class="row justify-content-center">
-    				<div class="col-11" style="text-align: center; background-image: url(/assets/img/fiesta.png); background-repeat: no-repeat; background-position: center;">
+    				<div class="col-11" style="text-align: center; background-image: url(/st/rally/server/public/assets/img/fiesta.png); background-repeat: no-repeat; background-position: center;">
 
     		 			<div class="text-final">
     		                ¡Felicidades!
